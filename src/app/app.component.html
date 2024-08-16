@@ -1,0 +1,23 @@
+<div class="m-2 text-center">
+  <div>
+    <img class="rounded-circle"
+         src="{{profile.picture}}" height="80">
+  </div>
+  <h3 class="m-2">{{ profile.name | titlecase }}</h3>
+  <h6>{{ profile.username }}</h6>
+  <p class="text-secondary"><small>{{ profile.bio }}</small></p>
+  <div class="d-grid gap-2 mx-auto"
+       [style.width.px]="400">
+    @for (link of profile.links; track link) {
+      <a
+        [href]="link.value"
+        target="_blank"
+        class="btn text-white  position-relative"
+        [style.background-color]="link.bgColor"
+      >
+        <i [class]="link.icon" class="position-absolute start-0 ms-2"></i> {{ link.title }}
+      </a>
+    }
+  </div>
+
+</div>
